@@ -8,7 +8,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static org.hamcrest.MatcherAssert.assertThat;
+//import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -71,7 +71,7 @@ public class LionTest {
 		List<String> actualList = lion.getFood();
 		assertEquals(expectedList, actualList, "питается этим");
 
-		Lion lion5 = new Lion(lion);
+		Lion lion5 = new Lion("Самец", feline);
 		System.out.println(lion5.getFood("Хищник") + " - это едят хищники");
 		System.out.println(lion5.getFood("Травоядное") + " - это не едят хищники");
 	}
@@ -110,7 +110,7 @@ public class LionTest {
 		System.out.println("И теперь хищники - стали травоядными");
 
 		System.out.println("============================================================================================");
-		Lion lion2 = new Lion(lion);
+		Lion lion2 = new Lion("Самец", feline);
 		System.out.println(lion2.getFood("Хищник") + " а вообще - это едят хищники");
 		System.out.println(lion2.getFood("Травоядное") + " а вообще - это не едят хищники");
 	}

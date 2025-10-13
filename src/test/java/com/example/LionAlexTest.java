@@ -23,7 +23,7 @@ class LionAlexTest {
 	@Test
 	void getFriendsPositiveTest() throws Exception {
 
-		LionAlex lionAlex = new LionAlex("Самец", feline);
+		LionAlex lionAlex = new LionAlex(feline);
 		List<String> expectFreindsList = List.of("зебра Марти", "бегемотиха Глория", "жираф Мелман");
 		List<String> actualFreindsList = lionAlex.getFriends();
 		assertEquals(expectFreindsList, actualFreindsList);
@@ -33,7 +33,7 @@ class LionAlexTest {
 
 	@Test
 	void getFriendsNagativeListofAndStringMatchingTest() throws Exception {
-		LionAlex lionAlex = new LionAlex("Самец", feline);
+		LionAlex lionAlex = new LionAlex(feline);
 		List<String> expectFreindsList = List.of("зебра Марти", "бегемотиха Глория", "жираф Мелман");
 		String actualFreindsList = lionAlex.getFriends().toString();
 		assertNotEquals(expectFreindsList, actualFreindsList);
@@ -43,7 +43,7 @@ class LionAlexTest {
 
 	@Test
 	public void getPlaceOfLivingPositiveTest() throws Exception {
-		LionAlex lion = new LionAlex("Самец", feline);
+		LionAlex lion = new LionAlex(feline);
 		String expectPlaceOfLiving = "Нью-Йоркский зоопарк";
 		String actualPlaceOfLiving = lion.getPlaceOfLiving();
 		assertEquals(expectPlaceOfLiving, actualPlaceOfLiving);
@@ -52,7 +52,7 @@ class LionAlexTest {
 
 	@Test
 	public void getPlaceOfLivingNegativeTest() throws Exception {
-		LionAlex lion = new LionAlex("Самец", feline);
+		LionAlex lion = new LionAlex(feline);
 		String expectPlaceOfLiving = "Катманду";
 		String actualPlaceOfLiving = lion.getPlaceOfLiving();
 		assertNotEquals(expectPlaceOfLiving, actualPlaceOfLiving);
@@ -62,7 +62,7 @@ class LionAlexTest {
 
 	@Test
 	public void getChangePlaceOfLivingPositiveTest() throws Exception {
-		Lion lion = new LionAlex("Самец", feline);
+		Lion lion = new LionAlex(feline);
 		Mockito.when(lionAlex.getPlaceOfLiving()).thenReturn("Москва");
 		String actualPlaceOfLiving = lionAlex.getPlaceOfLiving();
 		assertEquals(lionAlex.getPlaceOfLiving(), actualPlaceOfLiving);
@@ -70,8 +70,8 @@ class LionAlexTest {
 	}
 
 	@Test
-	public void getChangePlaceOfLivingNegativeTest() {
-		Lion lion = new Lion(lionAlex);
+	public void getChangePlaceOfLivingNegativeTest() throws Exception {
+		Lion lion = new LionAlex(feline);
 		String expectPlaceOfLiving = "Нью-Йоркский зоопарк";
 		Mockito.when(lionAlex.getPlaceOfLiving()).thenReturn("Москва");
 		String actualPlaceOfLiving = lionAlex.getPlaceOfLiving();
@@ -82,7 +82,7 @@ class LionAlexTest {
 
 	@Test
 	void getKittensGoodPositiveTest() throws Exception {
-		LionAlex lionAlex = new LionAlex("Самец", feline);
+		LionAlex lionAlex = new LionAlex(feline);
 		int expectCountOfKitten = 0;
 		int actualCountOfKitten = lionAlex.getKittens();
 		assertEquals(+expectCountOfKitten, actualCountOfKitten, "Известно, что у льва Алекса нет потомства, поэтому ожидаемый ответ : 0");
@@ -92,7 +92,7 @@ class LionAlexTest {
 
 	@Test
 	void getKittensGoodNegativeTest() throws Exception {
-		LionAlex lionAlex = new LionAlex("Самец", feline);
+		LionAlex lionAlex = new LionAlex(feline);
 		int expectCountOfKitten = 1;
 		int actualCountOfKitten = lionAlex.getKittens();
 		assertNotEquals(+expectCountOfKitten, actualCountOfKitten, "Известно, что у льва Алекса нет потомства, поэтому ожидаемый ответ : 0");

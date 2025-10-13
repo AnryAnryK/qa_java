@@ -23,7 +23,7 @@ class CatTest {
 		String actualSound = cat.getSound();
 		assertEquals(expectedSound, actualSound, "Ожидается, что кошки произносят звук 'Мяу'");
 
-		System.out.println("Ожидается, что кошки произносят звук 'Мяу' : " + cat.getSound());
+		System.out.printf("Ожидается, что кошки произносят звук Мяу%n : " + cat.getSound());
 	}
 
 	@Test
@@ -33,7 +33,7 @@ class CatTest {
 		String actualSound = cat.getSound();
 		assertNotEquals(expectedSound, actualSound, "Ожидается, что кошки произносят звук 'Мяу', а не 'Гав'");
 
-		System.out.println("Ожидается, что кошки произносят звук 'Мяу', а не 'Гав' : " + cat.getSound());
+		System.out.printf("Ожидается, что кошки произносят звук Мяу, а не Гав%n : " + cat.getSound());
 	}
 
 	@Test
@@ -44,7 +44,7 @@ class CatTest {
 		List<String> actualFood = cat.getFood();
 		assertEquals(expectedFood, actualFood);
 
-		System.out.println("Ожидается, что кошки едят 'Животных, Птиц, Рыб' : " + cat.getFood());
+		System.out.printf("Ожидается, что кошки едят Животных, Птиц, Рыб%n : " + cat.getFood());
 	}
 
 	@Test
@@ -55,6 +55,6 @@ class CatTest {
 		List<String> actualFood = cat.getFood();
 		assertNotEquals(expectedFood, actualFood);
 
-		System.out.println("Ожидается, что кошки едят 'Животных, Птиц, Рыб' : " + cat.getFood());
+		System.out.printf("Ожидается, что кошки едят Животных, Птиц, Рыб%n : " + cat.getFood());
 	}
 }
